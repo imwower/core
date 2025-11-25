@@ -1,0 +1,1 @@
+# awareness-core 当前仅依赖 Python 标准库；后续可按需增加第三方库。
