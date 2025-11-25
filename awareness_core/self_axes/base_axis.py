@@ -38,3 +38,13 @@ class BaseAxis(ABC):
     def summary(self) -> AxisSummary:
         """Return a light summary of axis state."""
         return AxisSummary(name=self.name, dim=self.dim, extras={})
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Serializable view combining vector and summary extras."""
+        summary = self.summary()
+        return {
+            "name": summary.name,
+            "dim": summary.dim,
+            "vector": self.to_vector(),
+            "extras": summary.extras,
+        }
